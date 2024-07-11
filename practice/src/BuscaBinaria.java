@@ -1,7 +1,6 @@
-// count-pairs-whose-sum-is-less-than-target
-
 public class BuscaBinaria {
 
+    // Exercício 1: Count Pairs Whose Sum is Less than target;
     public int countPairs(List<Integer> nums, int target) {
         
         // classifica a ordem do array em crescente.
@@ -31,5 +30,24 @@ public class BuscaBinaria {
             }
         }
         return count;
+    }
+
+    // Exercício 2: Find Target Indices After Sorting Array;
+    public List<Integer> targetIndices(int[] nums, int target) {
+        
+        // a matriz é ordenada para achar o target.
+        Arrays.sort(nums);
+ 
+         // cria uma nova lista para adicionar o target dentro.
+        ArrayList<Integer> listaTarget = new ArrayList<Integer>();
+ 
+         // um looping para percorrer toda a matriz ordenada.
+        for(int i = 0; i < nums.length; i++) {
+             // se o índice i for igual ao target ele irá adicionar em outra lista para depois ser impressa.
+             if(nums[i] == target) {
+                 listaTarget.add(i);
+             }
+        }
+        return listaTarget;
     }
 }
