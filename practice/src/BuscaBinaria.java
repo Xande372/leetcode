@@ -98,4 +98,30 @@ public class BuscaBinaria {
         }
         return new int[]{-1, -1};
     }
+
+    //Exercício 5: Search Insert Position
+    public int searchInsert(int[] nums, int target) {
+        
+        // começa indicando onde ficaram os ponteiros.
+        int left = 0;
+        int right = nums.length - 1;
+
+        // cria um looping para validar a lista de busca, com a regra.
+        while(left <= right) {
+
+            // calcula o index do meio de uma distância definida pelo left and right.
+            int mid = left + (right - left) / 2;
+
+            if(nums[mid] == target) { // se o elemento no midpoint for igual, retornamos o index do mid.
+                return mid;
+            } else if(nums[mid] > target) { // se o midpoint for maior, significa que o target deve estar na metade pra esquerda e ai ajustamos o ponteiro direito para o mid - 1.
+                right = mid - 1;
+            } else { // se o midpoint for menor, então teremos que procurar na metade da direita, passando o ponteiro da esquerda para o mid + 1.
+                left = mid + 1;
+            }
+        }
+
+        // se o target não for achado o loop irá se encerrar quando o left for maior que o right. Neste ponto, left deverá ser o index onde o target tem que ser inserido para manter um Sorted order.
+        return left;
+    }
 }
