@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class BuscaBinaria {
 
     // Exercício 1: Count Pairs Whose Sum is Less than target;
@@ -69,5 +74,28 @@ public class BuscaBinaria {
             }
         }
         return -1;
+    }
+
+    //Exercício 4: Two Sum II - Input Array is Sorted
+    public int[] twoSum(int[] numbers, int target) {
+        
+        int left = 0;
+        int right = numbers.length - 1;
+
+        while(left < right) {
+
+            int soma = numbers[left] + numbers[right];
+
+            if(soma == target) {
+                return new int[]{left + 1, right + 1};
+            }
+            
+            if(soma > target) {
+                right--;
+            } else {
+                left++;
+            }
+        }
+        return new int[]{-1, -1};
     }
 }
